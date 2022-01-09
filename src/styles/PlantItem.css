@@ -1,6 +1,6 @@
 .lmj-plant-item-cover {
-	height: 200px;
-	width: 200px;
+	height: 250px;
+	width: 250px;
 	border-radius: 20px;
 }
 
@@ -15,11 +15,11 @@
 
 .lmj-plant-item-prix {
 	position: relative;
-	top: 45px;
-	left: 156px;
+	top: 50px;
+	left: 200px;
 	
-	width: 24px;
-	height: 24px;
+	width: 30px;
+	height: 30px;
 	border-radius: 20px 20px 20px 0px;
 	
 	padding: 10px;

@@ -14,8 +14,8 @@ function Cart({ cart, updateCart, activeCategorie, setActiveCategorie }) {
     useEffect(() => 
     {
         document.title = `LMJ: ${total}€ d'achats`
-/*         alert(`Votre panier est d'un montant de ${total}€ 💳`)
- */    },
+/*         alert(`Votre panier est d'un montant de ${total}€ 💳`) */
+    },
     [total, activeCategorie])
 
     console.log("total = ", total)
@@ -25,17 +25,20 @@ function Cart({ cart, updateCart, activeCategorie, setActiveCategorie }) {
             <button
                 className='lmj-cart-toggle-button'
                 onClick={() => setIsOpen(false)} >Fermer</button>
-            <h3>Panier</h3>
-            <ul className='lmj-cart-list'>
-            { total != 0
-                ? cart.map((element, index) => (
-                    <li key={`${element.name}-${index}`}>{element.amount} {element.name} {element.prix}€</li>
-                  ))
-                : <li key="emptyCart">Votre panier est vide</li>
+            { cart.length != 0
+                ?
+                <>
+                <ul className='lmj-cart-list'>
+                {cart.map((element, index) => (
+                        <li key={`${element.name}-${index}`}>{element.amount} {element.name} {element.prix}€</li>
+                    ))
+                }   
+                </ul>
+                <p>Total : { total }€</p>
+                <button onClick={() => updateCart([])} >Vider le panier</button>
+                </>
+                : <span>Votre panier est vide</span>
             }
-            </ul>
-            <p>Total : { total }€</p>
-            <button onClick={() => updateCart([])} >Vider le panier</button>
         </div>
     ) : (
         <div className='lmj-cart-closed'>

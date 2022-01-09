@@ -32,7 +32,8 @@ function Footer() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => checkValue(e.target.value)}
-                onBlur={(e) => checkAdr(e.target.value)} />
+                onBlur={(e) => checkAdr(e.target.value)}
+                placeholder='Entrer votre email' />
 		</footer>
 	)
 }
