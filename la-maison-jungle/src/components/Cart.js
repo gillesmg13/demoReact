@@ -1,15 +1,7 @@
 import '../styles/Cart.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const prixLierre = 10
-const prixBouquet = 15
-
-const Item = (props) =>
-    (<span>{ props.lbl } { props.prix } €</span>)
-
-
-
-function Cart({ cart, updateCart }) {
+function Cart({ cart, updateCart, activeCategorie, setActiveCategorie }) {
     
     const [isOpen, setIsOpen] = useState(false)
 
@@ -18,7 +10,14 @@ function Cart({ cart, updateCart }) {
         (acc, elem) => acc + elem.amount * elem.prix,
         0
     )
-    //console.log("cart = ", cart)
+        
+    useEffect(() => 
+    {
+        document.title = `LMJ: ${total}€ d'achats`
+/*         alert(`Votre panier est d'un montant de ${total}€ 💳`)
+ */    },
+    [total, activeCategorie])
+
     return isOpen ? (
         
         <div className='lmj-cart'>

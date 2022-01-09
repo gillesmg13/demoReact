@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import { plantList } from '../datas/plantList'
 import "../styles/ShoppingList.css"
 import CareScale from './CareScale'
+import Categories from './Categories'
 import PlantItem from './PlantItem'
 
 
 
-function ShoppingList ({ cart, updateCart }) { 
+function ShoppingList ({ cart, updateCart, activeCategorie, setActiveCategorie }) { 
 
+/*     const [activeCategorie, setActiveCategorie] = useState('')
+ */
     const categories = plantList.reduce(
         (tab, elem) =>  tab.includes(elem.category) ? tab : tab.concat(elem.category) ,
         []
@@ -35,18 +39,20 @@ function ShoppingList ({ cart, updateCart }) {
             ])
         }
     }
+
     return (
         <div className='lmj-shopping-list'>
-        <p>Liste des categories</p>
-        <ul>
-            {categories.map((categ, index) => (
-                <li key={ `${categ}-${index}` }>{ categ }</li>
-                
-            ))}
-        </ul>
-        <p>Liste des plantes</p>
+
+        <Categories
+            setActiveCategorie={setActiveCategorie}
+            categories={categories}
+            activeCategorie={activeCategorie} />
+        
         <ul className='lmj-plant-list'>
             {plantList.map((plant) => (
+                // -- filtre d'affichage en fonction de l'activeCategorie
+                !activeCategorie || activeCategorie === plant.category
+                ?
                 <div key={plant.id}>            
                     { <PlantItem
                         name={plant.name}
@@ -56,7 +62,8 @@ function ShoppingList ({ cart, updateCart }) {
                         water={plant.water}
                         prix={plant.prix} /> }
                     <button onClick={() => addToCart(plant.name, plant.prix)}>Ajouter</button>
-                </div>                     
+                </div>
+                : null                     
                 /* 
                 { plant.isBestSale && <span>🔥</span> }
                 { plant.isSpecialOffer && <span className='lmj-sales'>Soldes</span>}

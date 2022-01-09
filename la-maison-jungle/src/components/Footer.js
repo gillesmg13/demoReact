@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import '../styles/Footer.css'
 
-function handleClick (val) {
-    console.log("Value=", val)
-}
 
 function Footer() {
 	const [inputValue, setInputValue] = useState('')

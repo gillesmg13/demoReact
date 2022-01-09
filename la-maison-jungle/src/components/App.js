@@ -10,12 +10,21 @@ import { useState } from 'react';
 function App() {
 
   const [cart, updateCart] = useState([])
+  const [activeCategorie, setActiveCategorie] = useState('')
 
   return (<>
           <Banner />
           <div className='lmj-layout-inner'>
-            <Cart cart={cart} updateCart={updateCart} />
-            <ShoppingList cart={cart} updateCart={updateCart} />
+            <Cart
+              cart={cart}
+              updateCart={updateCart}
+              activeCategorie={activeCategorie}
+              setActiveCategorie={setActiveCategorie} />
+            <ShoppingList
+              cart={cart}
+              updateCart={updateCart}
+              activeCategorie={activeCategorie}
+              setActiveCategorie={setActiveCategorie} />
           </div>
           <Footer />
           </>  
