@@ -1,2 +1,2 @@
-# fichier README
-Fichier d'initialisation
+- # fichier README
+- Fichier d'initialisation
