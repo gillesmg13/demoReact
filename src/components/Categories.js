@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import "../styles/Categories.css"
 
 function Categories ({ setActiveCategorie, categories, activeCategorie }) {

@@ -1,11 +1,7 @@
-import { useState } from 'react'
 import { plantList } from '../datas/plantList'
 import "../styles/ShoppingList.css"
-import CareScale from './CareScale'
 import Categories from './Categories'
 import PlantItem from './PlantItem'
-
-
 
 function ShoppingList ({ cart, updateCart, activeCategorie, setActiveCategorie }) { 
 
