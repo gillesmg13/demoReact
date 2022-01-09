@@ -27,8 +27,8 @@ function Cart({ cart, updateCart }) {
                 onClick={() => setIsOpen(false)} >Fermer</button>
             <h3>Panier</h3>
             <ul>
-            { cart.map((element) => (
-                <li>{element.amount} {element.name} {element.prix}€</li>
+            { cart.map((element, index) => (
+                <li key={`${element.name}-${index}`}>{element.amount} {element.name} {element.prix}€</li>
             ))}
             </ul>
             <p>Total : { total }€</p>
