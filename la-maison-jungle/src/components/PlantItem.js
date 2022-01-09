@@ -7,16 +7,20 @@ function handleClick(plantName) {
 
 function PlantItem (props) {
 
-    const {name, cover, id, light, water} = props
+    const {name, cover, id, light, water, prix} = props
     // onClick={() => handleClick(name)}
-    return (<li key={id}  className='lmj-plant-item' >            
+    return (<div key={id}  className='lmj-plant-item' >
+                <div className='lmj-plant-item-prix'>
+                    { prix }€
+                </div>          
                 <img src={cover} className='lmj-plant-item-cover' alt={`${name}`} />
                 { name }
                 <div>
                     <CareScale careType='water' scaleValue={water} />
                     <CareScale careType='light' scaleValue={light} />
                 </div>
-            </li>)
+                
+            </div>)
 }
 
 export default PlantItem
